@@ -1,25 +1,35 @@
-# chickengods homebrew tap
+# Resin Homebrew tap
 
-private tap for [resin](https://resin.fyi).
+Public Homebrew tap for [Resin](https://resin.fyi).
 
-## install
-
-you need read access to `chickengods/resin` and `chickengods/homebrew-tap`, plus github ssh keys (or `gh auth setup-git`).
+## Install
 
 ```sh
-brew tap chickengods/tap git@github.com:chickengods/homebrew-tap.git
-brew install resin
+brew install chickengods/tap/resin
 resin signup <invite-code>
 resin
 ```
 
-## upgrade
+The production binary connects only to Resin's hosted server at
+`https://resin-server.fly.dev`. Repository development builds use the separate
+`resin-dev` command.
+
+## Upgrade
 
 ```sh
-brew update && brew upgrade resin
+brew update
+brew upgrade resin
 ```
 
-## releasing (maintainers)
+## Release status
 
-1. tag the main repo: `git tag v0.x.y <sha> && git push origin v0.x.y`
-2. bump `tag:` and `revision:` in `Formula/resin.rb`, push here
+The current `v0.1.1` public preview is unsigned and not Apple-notarized. Published
+archives and checksums live in
+[`chickengods/resin-releases`](https://github.com/chickengods/resin-releases/releases).
+
+## Releasing
+
+1. Build both macOS architectures from the tagged source commit.
+2. Publish immutable archives and checksums to `chickengods/resin-releases`.
+3. Update each formula URL, checksum, version, and offline identity assertions.
+4. Run `brew style`, `brew audit`, and a clean formula install before publishing.

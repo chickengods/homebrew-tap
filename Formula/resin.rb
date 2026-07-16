@@ -1,23 +1,30 @@
 class Resin < Formula
-  desc "the context layer that ends your agent's cold starts"
+  desc "Context layer that ends your agent's cold starts"
   homepage "https://resin.fyi"
-  url "git@github.com:chickengods/resin.git",
-      using:    :git,
-      tag:      "v0.1.0",
-      revision: "6020eb3ef88a7924443d2df80393807e626b73fd"
-  version "0.1.0"
+  version "0.1.1"
 
-  depends_on "go" => :build
+  depends_on :macos
 
-  def install
-    cd "resin" do
-      system "go", "build", "-trimpath", "-ldflags", "-s -w", "-o", bin/"resin", "./cmd/resin"
+  on_macos do
+    on_arm do
+      url "https://github.com/chickengods/resin-releases/releases/download/v0.1.1/resin_0.1.1_darwin_arm64.tar.gz"
+      sha256 "b7a8d8dcae857edcde246f9ece59db38593a14ee74b0fa5a6a34c4b9ab8c8d7d"
+    end
+
+    on_intel do
+      url "https://github.com/chickengods/resin-releases/releases/download/v0.1.1/resin_0.1.1_darwin_amd64.tar.gz"
+      sha256 "45256ff240220974560a266cba2ac5771591660931f500bc1c9b25329b8049f8"
     end
   end
 
+  def install
+    bin.install "resin"
+  end
+
   test do
-    # offline-safe: unknown args exit 1 with a recognizable message
-    output = shell_output("#{bin}/resin definitely-not-a-command 2>&1", 1)
-    assert_match "unknown argument", output
+    output = shell_output("#{bin}/resin version --json")
+    assert_match '"version":"v0.1.1"', output
+    assert_match '"channel":"prod"', output
+    assert_match '"distribution":"homebrew"', output
   end
 end
