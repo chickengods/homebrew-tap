@@ -24,12 +24,12 @@ brew upgrade resin
 ## Release status
 
 The current `v0.1.1` public preview is unsigned and not Apple-notarized. Published
-archives and checksums live in
-[`chickengods/resin-releases`](https://github.com/chickengods/resin-releases/releases).
+archives and checksums live in this repository's
+[GitHub Releases](https://github.com/chickengods/homebrew-tap/releases).
 
 ## Releasing
 
 1. Build both macOS architectures from the tagged source commit.
-2. Publish immutable archives and checksums to `chickengods/resin-releases`.
+2. Publish immutable archives and checksums in this repository's GitHub Releases.
 3. Update each formula URL, checksum, version, and offline identity assertions.
 4. Run `brew style`, `brew audit`, and a clean formula install before publishing.

@@ -7,12 +7,12 @@ class Resin < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/chickengods/resin-releases/releases/download/v0.1.1/resin_0.1.1_darwin_arm64.tar.gz"
+      url "https://github.com/chickengods/homebrew-tap/releases/download/v0.1.1/resin_0.1.1_darwin_arm64.tar.gz"
       sha256 "b7a8d8dcae857edcde246f9ece59db38593a14ee74b0fa5a6a34c4b9ab8c8d7d"
     end
 
     on_intel do
-      url "https://github.com/chickengods/resin-releases/releases/download/v0.1.1/resin_0.1.1_darwin_amd64.tar.gz"
+      url "https://github.com/chickengods/homebrew-tap/releases/download/v0.1.1/resin_0.1.1_darwin_amd64.tar.gz"
       sha256 "45256ff240220974560a266cba2ac5771591660931f500bc1c9b25329b8049f8"
     end
   end
