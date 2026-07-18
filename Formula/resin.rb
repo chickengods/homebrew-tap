@@ -1,19 +1,19 @@
 class Resin < Formula
   desc "Context layer that ends your agent's cold starts"
   homepage "https://resin.fyi"
-  version "0.2.1"
+  version "0.2.2"
 
   depends_on :macos
 
   on_macos do
     on_arm do
-      url "https://github.com/chickengods/homebrew-tap/releases/download/v0.2.1/resin_0.2.1_darwin_arm64.tar.gz"
-      sha256 "65230e401a920b6f79a6568bd57c4dc6cb8d1bf7815f10061f372f667bfc4117"
+      url "https://github.com/chickengods/homebrew-tap/releases/download/v0.2.2/resin_0.2.2_darwin_arm64.tar.gz"
+      sha256 "52dcd1cf4a4290b0b6533f08b53c80a6fbb61337d164ebceefb9d27f5d676973"
     end
 
     on_intel do
-      url "https://github.com/chickengods/homebrew-tap/releases/download/v0.2.1/resin_0.2.1_darwin_amd64.tar.gz"
-      sha256 "fd6080759ecb59662991e11328140e16048c14a2bd96ea8504a36078a7803a52"
+      url "https://github.com/chickengods/homebrew-tap/releases/download/v0.2.2/resin_0.2.2_darwin_amd64.tar.gz"
+      sha256 "fd7e0615b85c13d21e5bd4501250a2773680babadd99137714ff82fea4bf0c28"
     end
   end
 
@@ -23,7 +23,7 @@ class Resin < Formula
 
   test do
     output = shell_output("#{bin}/resin version --json")
-    assert_match '"version":"v0.2.1"', output
+    assert_match '"version":"v0.2.2"', output
     assert_match '"channel":"prod"', output
     assert_match '"distribution":"homebrew"', output
   end
